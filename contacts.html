@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Помощь эмигрантам</title>
+    <style>
+        /* Общие стили как на главной */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; padding: 0; max-width: 100%; overflow-x: hidden; }
+        header { background: linear-gradient(to right, #005bbb, #1e6bb8); color: white; padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-weight: bold; font-size: 1.4rem; display: flex; align-items: center; }
+        .logo-icon { margin-right: 10px; font-size: 1.8rem; }
+        .menu-toggle { position: absolute; top: 1.2rem; right: 1rem; cursor: pointer; z-index: 101; }
+        .menu-toggle span { display: block; width: 28px; height: 3px; background: white; margin: 5px 0; transition: 0.3s; }
+        .nav-links { display: none; background: #005bbb; padding: 1rem 0; position: absolute; top: 100%; left: 0; width: 100%; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .nav-links.active { display: block; }
+        .nav-links a { display: block; color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 1.1rem; }
+        .nav-links a:last-child { border-bottom: none; }
+        main { padding: 1.2rem; max-width: 800px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        h1 { color: #005bbb; font-size: 1.8rem; margin-bottom: 1rem; }
+        h2 { color: #005bbb; font-size: 1.4rem; margin: 1.5rem 0 1rem; border-left: 4px solid #ffd500; padding-left: 0.8rem; }
+        h3 { color: #005bbb; font-size: 1.2rem; margin: 1.2rem 0 0.8rem; }
+        p { margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+        li { margin-bottom: 0.6rem; font-size: 1rem; }
+        .btn { display: inline-block; background: #ffd500; color: #333; text-decoration: none; font-weight: bold; padding: 0.8rem 1.5rem; border-radius: 50px; margin: 0.5rem 0; text-align: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1); border: none; font-size: 1rem; }
+        .btn-block { display: block; width: 100%; margin: 1.5rem 0 0.5rem; }
+        .btn-secondary { background: #e9ecef; color: #333; }
+        footer { background: #343a40; color: #adb5bd; padding: 2rem 1.2rem; margin-top: 2rem; font-size: 0.9rem; }
+        .legal-warning { background: #fff8e1; border-left: 4px solid #ffd500; padding: 1rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+        .contact-card { display: flex; margin-bottom: 1.5rem; }
+        .contact-icon { background: #005bbb; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; font-size: 1.5rem; }
+        .contact-content { flex: 1; }
+        .map { height: 300px; background: #eee; border-radius: 12px; margin: 1.5rem 0; display: flex; align-items: center; justify-content: center; color: #666; }
+        .social-links { display: flex; gap: 15px; margin-top: 1rem; }
+        .social-links a { display: block; width: 40px; height: 40px; border-radius: 50%; background: #005bbb; color: white; text-align: center; line-height: 40px; text-decoration: none; }
+        
+        @media (min-width: 768px) {
+            .menu-toggle { display: none; }
+            .nav-links { display: flex; position: static; background: transparent; padding: 0; box-shadow: none; }
+            .nav-links a { display: inline-block; padding: 0.5rem 1rem; margin-left: 0.5rem; border: none; font-size: 1rem; border-radius: 4px; }
+            .nav-links a:hover { background: rgba(255,255,255,0.1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🇵🇱</span>
+            Контакты
+        </div>
+        
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Главная</a>
+            <a href="karta-pobytu.html">Карта побыту</a>
+            <a href="pit.html">Налоги (PIT)</a>
+            <a href="faq.html">Вопросы-ответы</a>
+            <a href="contacts.html" class="active">Контакты</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="card">
+            <h1>Свяжитесь с нами</h1>
+            <p>Мы готовы ответить на ваши вопросы и помочь в сложных ситуациях.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Основные контакты</h2>
+            
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-content">
+                    <h3>Электронная почта</h3>
+                    <p>info@emigrant-help.pl</p>
+                    <p>Ответ в течение 24 часов</p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <div class="contact-content">
+                    <h3>Телеграм-бот</h3>
+                    <p>@emigrant_poland_bot</p>
+                    <p>Круглосуточная автоматическая помощь</p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">👥</div>
+                <div class="contact-content">
+                    <h3>Группы поддержки</h3>
+                    <p>Варшава: +48 123 456 789</p>
+                    <p>Краков: +48 987 654 321</p>
+                    <p>Вроцлав: +48 555 123 456</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://t.me/emigrant_poland" title="Telegram">T</a>
+                <a href="https://facebook.com/emigrant.poland" title="Facebook">f</a>
+                <a href="https://instagram.com/emigrant_poland" title="Instagram">i</a>
+                <a href="https://youtube.com/emigrantpoland" title="YouTube">Y</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Офисы поддержки</h2>
+            
+            <h3>Варшава</h3>
+            <p>ул. Таргова 12, офис 45</p>
+            <p>Пн-Пт: 10:00-18:00</p>
+            <div class="map">Карта: Центр Варшавы, район Прага</div>
+            
+            <h3>Краков</h3>
+            <p>пл. Рынк Глувны 5, 2 этаж</p>
+            <p>Вт-Сб: 11:00-19:00</p>
+            <div class="map">Карта: Главная рыночная площадь</div>
+            
+            <h3>Гданьск</h3>
+            <p>ул. Длуга 22, офис 3</p>
+            <p>Ср-Вс: 12:00-20:00</p>
+            <div class="map">Карта: Исторический центр Гданьска</div>
+        </div>
+        
+        <div class="card">
+            <h2>Официальные организации</h2>
+            
+            <div class="contact-card">
+                <div class="contact-icon">🏢</div>
+                <div class="contact-content">
+                    <h3>Управление по делам иностранцев</h3>
+                    <p>Телефон: +48 22 601 42 00</p>
+                    <p>Сайт: <a href="https://udsc.gov.pl" target="_blank">udsc.gov.pl</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">💰</div>
+                <div class="contact-content">
+                    <h3>Налоговая служба</h3>
+                    <p>Телефон: +48 22 330 03 30</p>
+                    <p>Сайт: <a href="https://podatki.gov.pl" target="_blank">podatki.gov.pl</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">🏥</div>
+                <div class="contact-content">
+                    <h3>Национальный фонд здоровья (NFZ)</h3>
+                    <p>Телефон: +48 22 572 60 00</p>
+                    <p>Сайт: <a href="https://nfz.gov.pl" target="_blank">nfz.gov.pl</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Форма обратной связи</h2>
+            
+            <div class="input-group" style="margin-bottom: 1rem;">
+                <label for="name">Ваше имя:</label>
+                <input type="text" id="name" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+            </div>
+            
+            <div class="input-group" style="margin-bottom: 1rem;">
+                <label for="contact-email">Ваш email:</label>
+                <input type="email" id="contact-email" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+            </div>
+            
+            <div class="input-group" style="margin-bottom: 1rem;">
+                <label for="subject">Тема:</label>
+                <select id="subject" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                    <option value="">Выберите тему</option>
+                    <option value="legal">Легализация и документы</option>
+                    <option value="tax">Налоги и финансы</option>
+                    <option value="work">Трудоустройство</option>
+                    <option value="education">Образование</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            
+            <div class="input-group" style="margin-bottom: 1rem;">
+                <label for="message">Сообщение:</label>
+                <textarea id="message" rows="4" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;"></textarea>
+            </div>
+            
+            <button class="btn btn-block">Отправить сообщение</button>
+        </div>
+        
+        <div class="legal-warning">
+            <strong>Важно:</strong> Официальные запросы в государственные учреждения нужно направлять напрямую через их официальные каналы.
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Помощь эмигрантам в Польше</p>
+        <p>Email: info@emigrant-help.pl</p>
+        <p>Телеграм: @emigrant_poland</p>
+        <p><small>Неофициальный информационный ресурс</small></p>
+    </footer>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        document.querySelector('footer p').innerHTML = `© ${new Date().getFullYear()} Помощь эмигрантам в Польше`;
+    </script>
+</body>
+</html>
