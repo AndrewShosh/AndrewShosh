@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта побыту - Помощь эмигрантам</title>
+    <style>
+        /* Общие стили как на главной */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; padding: 0; max-width: 100%; overflow-x: hidden; }
+        header { background: linear-gradient(to right, #005bbb, #1e6bb8); color: white; padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-weight: bold; font-size: 1.4rem; display: flex; align-items: center; }
+        .logo-icon { margin-right: 10px; font-size: 1.8rem; }
+        .menu-toggle { position: absolute; top: 1.2rem; right: 1rem; cursor: pointer; z-index: 101; }
+        .menu-toggle span { display: block; width: 28px; height: 3px; background: white; margin: 5px 0; transition: 0.3s; }
+        .nav-links { display: none; background: #005bbb; padding: 1rem 0; position: absolute; top: 100%; left: 0; width: 100%; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .nav-links.active { display: block; }
+        .nav-links a { display: block; color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 1.1rem; }
+        .nav-links a:last-child { border-bottom: none; }
+        main { padding: 1.2rem; max-width: 800px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        h1 { color: #005bbb; font-size: 1.8rem; margin-bottom: 1rem; }
+        h2 { color: #005bbb; font-size: 1.4rem; margin: 1.5rem 0 1rem; border-left: 4px solid #ffd500; padding-left: 0.8rem; }
+        h3 { color: #005bbb; font-size: 1.2rem; margin: 1.2rem 0 0.8rem; }
+        p { margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+        li { margin-bottom: 0.6rem; font-size: 1rem; }
+        .btn { display: inline-block; background: #ffd500; color: #333; text-decoration: none; font-weight: bold; padding: 0.8rem 1.5rem; border-radius: 50px; margin: 0.5rem 0; text-align: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1); border: none; font-size: 1rem; }
+        .btn-block { display: block; width: 100%; margin: 1.5rem 0 0.5rem; }
+        .btn-secondary { background: #e9ecef; color: #333; }
+        footer { background: #343a40; color: #adb5bd; padding: 2rem 1.2rem; margin-top: 2rem; font-size: 0.9rem; }
+        .legal-warning { background: #fff8e1; border-left: 4px solid #ffd500; padding: 1rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+        .step { display: flex; margin-bottom: 1.5rem; }
+        .step-number { background: #005bbb; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; }
+        .step-content { flex: 1; }
+        .document-list { background: #f1f8ff; border-radius: 8px; padding: 1.2rem; margin: 1rem 0; }
+        .info-card { background: #e6f7ff; border-left: 4px solid #1890ff; padding: 1rem; margin: 1.2rem 0; }
+        
+        @media (min-width: 768px) {
+            .menu-toggle { display: none; }
+            .nav-links { display: flex; position: static; background: transparent; padding: 0; box-shadow: none; }
+            .nav-links a { display: inline-block; padding: 0.5rem 1rem; margin-left: 0.5rem; border: none; font-size: 1rem; border-radius: 4px; }
+            .nav-links a:hover { background: rgba(255,255,255,0.1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🇵🇱</span>
+            Карта побыту
+        </div>
+        
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Главная</a>
+            <a href="karta-pobytu.html" class="active">Карта побыту</a>
+            <a href="pit.html">Налоги (PIT)</a>
+            <a href="faq.html">Вопросы-ответы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="card">
+            <h1>Карта побыту в Польше 2025</h1>
+            <p>Полное руководство по получению временного и постоянного вида на жительство для граждан Украины.</p>
+            
+            <div class="info-card">
+                <strong>Важно:</strong> С 1 июня 2025 года изменены требования к подтверждению дохода. Минимальная сумма — 1800 zł/мес на человека.
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Типы карт побыту</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Временная карта побыту (Karta czasowego pobytu)</h3>
+                    <p>Срок действия: 1-3 года</p>
+                    <p>Основания для получения:</p>
+                    <ul>
+                        <li>Работа по трудовому договору</li>
+                        <li>Ведение бизнеса</li>
+                        <li>Обучение в вузе</li>
+                        <li>Воссоединение семьи</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Карта CUKR (для беженцев)</h3>
+                    <p>Срок действия: до 3 лет</p>
+                    <p>Особенности:</p>
+                    <ul>
+                        <li>Упрощенная процедура оформления</li>
+                        <li>Без права на социальную помощь</li>
+                        <li>Требуется подтверждение статуса</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Постоянное проживание (Karta stałego pobytu)</h3>
+                    <p>Срок действия: 10 лет</p>
+                    <p>Требования:</p>
+                    <ul>
+                        <li>Непрерывное проживание 5+ лет</li>
+                        <li>Стабильный доход</li>
+                        <li>Сертификат знания польского языка (B1)</li>
+                        <li>Постоянное жилье</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Пошаговая инструкция</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Подготовка документов</h3>
+                    <div class="document-list">
+                        <p>Обязательные документы:</p>
+                        <ul>
+                            <li>Заполненное заявление (форма доступна на inpol.mazowieckie.pl)</li>
+                            <li>Действующий паспорт + копия</li>
+                            <li>4 фотографии 35×45 мм</li>
+                            <li>Договор аренды жилья</li>
+                            <li>Подтверждение дохода (выписка с банка или трудовой договор)</li>
+                            <li>Медицинская страховка</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Запись на подачу документов</h3>
+                    <p>Используйте официальный портал:</p>
+                    <a href="https://inpol.mazowieckie.pl" class="btn" target="_blank">Записаться онлайн</a>
+                    <p>Выберите удобное воеводство и дату визита.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Оплата сбора</h3>
+                    <p>Размер пошлины:</p>
+                    <ul>
+                        <li>Временная карта: 440 zł</li>
+                        <li>Карта CUKR: 220 zł</li>
+                        <li>Постоянное проживание: 640 zł</li>
+                    </ul>
+                    <p>Оплатите через банк или онлайн перед визитом.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Подача документов</h3>
+                    <p>Придите в назначенное время с полным пакетом документов. Процедура занимает 30-60 минут.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Получение решения</h3>
+                    <p>Срок рассмотрения:</p>
+                    <ul>
+                        <li>Карта CUKR: до 30 дней</li>
+                        <li>Временная карта: до 60 дней</li>
+                        <li>Постоянное проживание: до 90 дней</li>
+                    </ul>
+                    <p>Статус можно проверить онлайн через портал inPOL.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Частые проблемы и решения</h2>
+            
+            <div class="step">
+                <div class="step-number">!</div>
+                <div class="step-content">
+                    <h3>Отказ из-за недостаточного дохода</h3>
+                    <p>Решение: предоставьте дополнительные документы о доходах (договор подряда, спонсорское письмо).</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">!</div>
+                <div class="step-content">
+                    <h3>Ошибки в заполнении заявления</h3>
+                    <p>Решение: используйте <a href="https://inpol.mazowieckie.pl/guides" target="_blank">официальные инструкции</a> или обратитесь за помощью в консультационный центр.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">!</div>
+                <div class="step-content">
+                    <h3>Длительное ожидание решения</h3>
+                    <p>Решение: подайте запрос о ускорении через электронное обращение на inPOL.</p>
+                </div>
+            </div>
+            
+            <a href="faq.html" class="btn btn-block">Больше вопросов и ответов</a>
+        </div>
+        
+        <div class="legal-warning">
+            <strong>Юридическое предупреждение:</strong> Информация актуальна на июнь 2025 года. Всегда проверяйте обновления на <a href="https://migrant.info.pl" target="_blank">migrant.info.pl</a>.
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Помощь эмигрантам в Польше</p>
+        <p>Email: info@emigrant-help.pl</p>
+        <p>Телеграм: @emigrant_poland</p>
+        <p><small>Неофициальный информационный ресурс</small></p>
+    </footer>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        document.querySelector('footer p').innerHTML = `© ${new Date().getFullYear()} Помощь эмигрантам в Польше`;
+    </script>
+</body>
+</html>
