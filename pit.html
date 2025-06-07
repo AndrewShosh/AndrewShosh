@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Налоги PIT - Помощь эмигрантам</title>
+    <style>
+        /* Общие стили как на главной */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #333; background: #f8f9fa; padding: 0; max-width: 100%; overflow-x: hidden; }
+        header { background: linear-gradient(to right, #005bbb, #1e6bb8); color: white; padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-weight: bold; font-size: 1.4rem; display: flex; align-items: center; }
+        .logo-icon { margin-right: 10px; font-size: 1.8rem; }
+        .menu-toggle { position: absolute; top: 1.2rem; right: 1rem; cursor: pointer; z-index: 101; }
+        .menu-toggle span { display: block; width: 28px; height: 3px; background: white; margin: 5px 0; transition: 0.3s; }
+        .nav-links { display: none; background: #005bbb; padding: 1rem 0; position: absolute; top: 100%; left: 0; width: 100%; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .nav-links.active { display: block; }
+        .nav-links a { display: block; color: white; text-decoration: none; padding: 0.8rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 1.1rem; }
+        .nav-links a:last-child { border-bottom: none; }
+        main { padding: 1.2rem; max-width: 800px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.05); }
+        h1 { color: #005bbb; font-size: 1.8rem; margin-bottom: 1rem; }
+        h2 { color: #005bbb; font-size: 1.4rem; margin: 1.5rem 0 1rem; border-left: 4px solid #ffd500; padding-left: 0.8rem; }
+        h3 { color: #005bbb; font-size: 1.2rem; margin: 1.2rem 0 0.8rem; }
+        p { margin-bottom: 1rem; font-size: 1rem; line-height: 1.7; }
+        ul, ol { padding-left: 1.5rem; margin-bottom: 1.2rem; }
+        li { margin-bottom: 0.6rem; font-size: 1rem; }
+        .btn { display: inline-block; background: #ffd500; color: #333; text-decoration: none; font-weight: bold; padding: 0.8rem 1.5rem; border-radius: 50px; margin: 0.5rem 0; text-align: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1); border: none; font-size: 1rem; }
+        .btn-block { display: block; width: 100%; margin: 1.5rem 0 0.5rem; }
+        .btn-secondary { background: #e9ecef; color: #333; }
+        footer { background: #343a40; color: #adb5bd; padding: 2rem 1.2rem; margin-top: 2rem; font-size: 0.9rem; }
+        .legal-warning { background: #fff8e1; border-left: 4px solid #ffd500; padding: 1rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; font-size: 0.9rem; }
+        .tax-calculator { background: #f0f9ff; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+        .input-group { margin-bottom: 1.2rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        input, select { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        .result { background: #e6ffed; border-left: 4px solid #38a169; padding: 1rem; margin: 1.5rem 0; display: none; }
+        .info-card { background: #e6f7ff; border-left: 4px solid #1890ff; padding: 1rem; margin: 1.2rem 0; }
+        
+        @media (min-width: 768px) {
+            .menu-toggle { display: none; }
+            .nav-links { display: flex; position: static; background: transparent; padding: 0; box-shadow: none; }
+            .nav-links a { display: inline-block; padding: 0.5rem 1rem; margin-left: 0.5rem; border: none; font-size: 1rem; border-radius: 4px; }
+            .nav-links a:hover { background: rgba(255,255,255,0.1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🇵🇱</span>
+            Налоги PIT
+        </div>
+        
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Главная</a>
+            <a href="karta-pobytu.html">Карта побыту</a>
+            <a href="pit.html" class="active">Налоги (PIT)</a>
+            <a href="faq.html">Вопросы-ответы</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="card">
+            <h1>Налоги PIT для эмигрантов</h1>
+            <p>Полное руководство по налоговым обязательствам для граждан Украины в Польше. Актуально на 2025 год.</p>
+            
+            <div class="info-card">
+                <strong>Важно:</strong> С 1 января 2025 года все украинцы, работающие в Польше более 183 дней в году, обязаны платить налоги как резиденты.
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Основные принципы налогообложения</h2>
+            
+            <div class="tax-calculator">
+                <h3>Калькулятор PIT</h3>
+                
+                <div class="input-group">
+                    <label for="income">Ваш годовой доход (zł):</label>
+                    <input type="number" id="income" placeholder="Введите сумму">
+                </div>
+                
+                <div class="input-group">
+                    <label for="status">Ваш налоговый статус:</label>
+                    <select id="status">
+                        <option value="resident">Резидент (проживаю >183 дней)</option>
+                        <option value="non-resident">Нерезидент (проживаю <183 дней)</option>
+                        <option value="ukr-special">Специальный статус UKR</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="children">Количество детей:</label>
+                    <input type="number" id="children" min="0" value="0">
+                </div>
+                
+                <button class="btn btn-block" onclick="calculateTax()">Рассчитать налог</button>
+                
+                <div class="result" id="taxResult">
+                    <h3>Результат расчета:</h3>
+                    <p id="resultText"></p>
+                </div>
+            </div>
+            
+            <h3>Кто является налоговым резидентом?</h3>
+            <p>Резидентом считается лицо, которое:</p>
+            <ul>
+                <li>Имеет центр жизненных интересов в Польше</li>
+                <li>Находится на территории Польши более 183 дней в году</li>
+                <li>Имеет постоянное место жительства</li>
+            </ul>
+            
+            <h3>Ставки налога на 2025 год</h3>
+            <ul>
+                <li><strong>До 120 000 zł:</strong> 12%</li>
+                <li><strong>Свыше 120 000 zł:</strong> 32%</li>
+                <li><strong>Необлагаемый минимум:</strong> 30 000 zł</li>
+                <li><strong>Для нерезидентов:</strong> 20% со всех доходов в Польше</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Льготы и вычеты</h2>
+            
+            <h3>Для резидентов</h3>
+            <ul>
+                <li><strong>Детский вычет:</strong> 1 112 zł на каждого ребенка</li>
+                <li><strong>Интернет:</strong> до 760 zł в год</li>
+                <li><strong>Благотворительность:</strong> до 6% от дохода</li>
+                <li><strong>Медицинские расходы:</strong> до 7 500 zł</li>
+            </ul>
+            
+            <h3>Для граждан Украины</h3>
+            <ul>
+                <li>Освобождение от налога на доходы, полученные из Украины</li>
+                <li>Упрощенная процедура подачи декларации</li>
+                <li>Бесплатная помощь в налоговых центрах для беженцев</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>Подача налоговой декларации</h2>
+            
+            <h3>Сроки подачи</h3>
+            <ul>
+                <li><strong>Онлайн:</strong> до 30 апреля 2026 года</li>
+                <li><strong>Бумажная форма:</strong> до 2 мая 2026 года</li>
+            </ul>
+            
+            <h3>Как подать декларацию</h3>
+            <ol>
+                <li>Зарегистрируйтесь на портале <a href="https://www.podatki.gov.pl" target="_blank">podatki.gov.pl</a></li>
+                <li>Заполните форму PIT-37 онлайн</li>
+                <li>Подпишите электронной подписью или профилем zaufany</li>
+                <li>Дождитесь подтверждения</li>
+            </ol>
+            
+            <a href="https://www.podatki.gov.pl" class="btn btn-block" target="_blank">Подать декларацию онлайн</a>
+            
+            <div class="info-card">
+                <strong>Бесплатная помощь:</strong> В каждом воеводстве работают консультационные центры для помощи мигрантам в заполнении налоговых деклараций.
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Частые вопросы</h2>
+            
+            <h3>Нужно ли платить налоги с гуманитарной помощи?</h3>
+            <p>Нет, гуманитарная помощь и пособия не облагаются налогом.</p>
+            
+            <h3>Как подтвердить доходы из Украины?</h3>
+            <p>Предоставьте выписку из украинского банка и справку от работодателя с переводом на польский язык.</p>
+            
+            <h3>Что делать при переплате налогов?</h3>
+            <p>Укажите номер польского банковского счета в декларации - переплата будет возвращена в течение 3 месяцев.</p>
+            
+            <a href="faq.html" class="btn btn-block">Больше вопросов и ответов</a>
+        </div>
+        
+        <div class="legal-warning">
+            <strong>Юридическое предупреждение:</strong> Данная информация не заменяет профессиональную налоговую консультацию. Для сложных случаев обратитесь к сертифицированному налоговому консультанту.
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2025 Помощь эмигрантам в Польше</p>
+        <p>Email: info@emigrant-help.pl</p>
+        <p>Телеграм: @emigrant_poland</p>
+        <p><small>Неофициальный информационный ресурс</small></p>
+    </footer>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        document.querySelector('footer p').innerHTML = `© ${new Date().getFullYear()} Помощь эмигрантам в Польше`;
+        
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('income').value);
+            const status = document.getElementById('status').value;
+            const children = parseInt(document.getElementById('children').value) || 0;
+            
+            if (!income || income <= 0) {
+                alert("Введите корректную сумму дохода");
+                return;
+            }
+            
+            let tax = 0;
+            let details = "";
+            
+            if (status === 'non-resident') {
+                tax = income * 0.2;
+                details = `Налог для нерезидента (20%): ${tax.toFixed(2)} zł`;
+            } 
+            else if (status === 'ukr-special') {
+                const taxableIncome = Math.max(0, income - 30000);
+                tax = taxableIncome * 0.12;
+                details = `Налог по специальному статусу UKR: ${tax.toFixed(2)} zł (12% от суммы после вычета необлагаемого минимума)`;
+            }
+            else {
+                const deduction = children * 1112;
+                const taxableIncome = Math.max(0, income - 30000 - deduction);
+                
+                if (taxableIncome <= 120000) {
+                    tax = taxableIncome * 0.12;
+                } else {
+                    tax = 120000 * 0.12 + (taxableIncome - 120000) * 0.32;
+                }
+                
+                details = `Налог для резидента: ${tax.toFixed(2)} zł<br>
+                           С учетом: 
+                           - Необлагаемый минимум: 30 000 zł<br>
+                           - Детский вычет: ${children > 0 ? (children * 1112).toFixed(2) + ' zł' : 'нет'}`;
+            }
+            
+            document.getElementById('resultText').innerHTML = `
+                <strong>Сумма налога к уплате: ${tax.toFixed(2)} zł</strong><br><br>
+                ${details}
+            `;
+            document.getElementById('taxResult').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
